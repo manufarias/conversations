@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Osana Brand - Primary Palette */
+  --primary-800: #023bac;
+  --primary-700: #0347ce;
+  --primary-600: #1a66fc;
+  --primary-500: #afc9fe;
+  --primary-300: #ccddff;
+  --primary-50: #e8f0ff;
+  --primary-25: #f1f6ff;
+  
+  /* Osana Brand - Secondary Palette */
+  --secondary-800: #0f6a54;
+  --secondary-700: #159173;
+  --secondary-600: #18a987;
+  --secondary-500: #1dcca3;
+  --secondary-300: #aaf3e2;
+  --secondary-50: #dbfaf3;
+  
+  /* Neutral Palette */
+  --neutral-800: #40435b;
+  --neutral-700: #6b6f93;
+  --neutral-500: #acaec4;
+  --neutral-300: #e0e1e9;
+  --neutral-50: #f8f8f8;
+  --neutral-white: #ffffff;
+  
+  /* Neutral Alpha Palette */
+  --neutral-alpha-800: rgba(64, 67, 91, 0.9);
+  --neutral-alpha-700: rgba(107, 111, 147, 0.72);
+  --neutral-alpha-500: rgba(172, 174, 196, 0.64);
+  --neutral-alpha-300: rgba(224, 225, 233, 0.66);
+  --neutral-alpha-50: rgba(64, 67, 91, 0.04);
+  --white-alpha: rgba(255, 255, 255, 0.8);
+  
+  /* Semantic Colors */
+  --success-600: #3bc184;
+  --success-100: #b5e8d1;
+  --success-50: #ebf9f3;
+  
+  --warning-600: #ffc700;
+  --warning-100: #ffea9f;
+  --warning-50: #fff9e6;
+  
+  --error-600: #e22e2e;
+  --error-100: #f8cbcb;
+  --error-50: #ffebeb;
+  
+  --information-600: #1a66fc;
+  --information-100: #c6d9fe;
+  --information-50: #f2f7ff;
+  
+  /* Application Tokens */
+  --font-size: 16px;
+  --background: var(--neutral-white);
+  --foreground: var(--neutral-800);
+  --card: var(--neutral-white);
+  --card-foreground: var(--neutral-800);
+  --popover: var(--neutral-white);
+  --popover-foreground: var(--neutral-800);
+  --primary: var(--primary-600);
+  --primary-foreground: var(--neutral-white);
+  --secondary: var(--primary-50);
+  --secondary-foreground: var(--primary-800);
+  --muted: var(--neutral-50);
+  --muted-foreground: var(--neutral-700);
+  --accent: var(--primary-300);
+  --accent-foreground: var(--primary-800);
+  --destructive: var(--error-600);
+  --destructive-foreground: var(--neutral-white);
+  --border: var(--neutral-300);
+  --input: transparent;
+  --input-background: var(--neutral-50);
+  --switch-background: var(--neutral-500);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: var(--primary-600);
+  --chart-1: var(--primary-600);
+  --chart-2: var(--primary-700);
+  --chart-3: var(--secondary-500);
+  --chart-4: var(--secondary-600);
+  --chart-5: var(--neutral-500);
+  --radius: 0.625rem;
+  --sidebar: var(--neutral-white);
+  --sidebar-foreground: var(--neutral-800);
+  --sidebar-primary: var(--primary-600);
+  --sidebar-primary-foreground: var(--neutral-white);
+  --sidebar-accent: var(--primary-50);
+  --sidebar-accent-foreground: var(--primary-800);
+  --sidebar-border: var(--neutral-300);
+  --sidebar-ring: var(--primary-600);
+}
+
+.dark {
+  --background: var(--neutral-800);
+  --foreground: var(--neutral-white);
+  --card: var(--neutral-700);
+  --card-foreground: var(--neutral-white);
+  --popover: var(--neutral-700);
+  --popover-foreground: var(--neutral-white);
+  --primary: var(--primary-500);
+  --primary-foreground: var(--neutral-800);
+  --secondary: var(--neutral-700);
+  --secondary-foreground: var(--neutral-white);
+  --muted: var(--neutral-700);
+  --muted-foreground: var(--neutral-300);
+  --accent: var(--primary-700);
+  --accent-foreground: var(--neutral-white);
+  --destructive: var(--error-600);
+  --destructive-foreground: var(--neutral-white);
+  --border: var(--neutral-700);
+  --input: var(--neutral-700);
+  --ring: var(--primary-500);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: var(--primary-500);
+  --chart-2: var(--primary-600);
+  --chart-3: var(--secondary-500);
+  --chart-4: var(--neutral-500);
+  --chart-5: var(--neutral-300);
+  --sidebar: var(--neutral-700);
+  --sidebar-foreground: var(--neutral-white);
+  --sidebar-primary: var(--primary-500);
+  --sidebar-primary-foreground: var(--neutral-800);
+  --sidebar-accent: var(--neutral-800);
+  --sidebar-accent-foreground: var(--neutral-white);
+  --sidebar-border: var(--neutral-800);
+  --sidebar-ring: var(--primary-500);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    font-weight: 400;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  }
+  
+  /* Ensure all text elements default to regular weight */
+  h1, h2, h3, h4, h5, h6, p, span, div, label, button, a, input, textarea, select {
+    font-weight: 400;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes sparkle-pulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 0.6;
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes laser-beam {
+  0% {
+    clip-path: inset(50% 100% 50% 0);
+  }
+  15% {
+    clip-path: inset(50% 100% 0 0);
+  }
+  85% {
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    clip-path: inset(50% 0 50% 100%);
+  }
+}
+
+.animate-laser-beam {
+  position: relative;
+}
+
+.animate-laser-beam::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 132, 199, 1) 0%,
+    rgba(2, 132, 199, 0.8) 25%,
+    rgba(2, 132, 199, 0.8) 75%,
+    rgba(2, 132, 199, 1) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: laser-beam 1.5s ease-in-out forwards;
+  pointer-events: none;
+}
+
+/* Toast success icon color - using Osana success color */
+[data-sonner-toast][data-type="success"] [data-icon] {
+  color: var(--success-600) !important;
+}
+
+[data-sonner-toast][data-type="success"] [data-icon] svg {
+  color: var(--success-600) !important;
+}
