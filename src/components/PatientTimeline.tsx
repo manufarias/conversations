@@ -629,7 +629,7 @@ export function PatientTimeline({
   };
 
   const formatDateDivider = (dateString: string): string => {
-    const [year, month, day] = dateString.split('-').map(Number);
+    const [year, month, day] = dateString.split("-").map(Number);
     const messageDate = new Date(year, month - 1, day);
     const today = new Date();
     const yesterday = new Date(today);

@@ -42,16 +42,19 @@ export function NotificationDropdown({
 
   // Load sound preference on mount
   useEffect(() => {
-    const savedPreference = localStorage.getItem('notificationSoundEnabled');
+    const savedPreference = localStorage.getItem("notificationSoundEnabled");
     if (savedPreference !== null) {
-      setSoundEnabled(savedPreference === 'true');
+      setSoundEnabled(savedPreference === "true");
     }
   }, []);
 
   const handleToggleSound = () => {
     setSoundEnabled(!soundEnabled);
     // Store preference in localStorage
-    localStorage.setItem('notificationSoundEnabled', (!soundEnabled).toString());
+    localStorage.setItem(
+      "notificationSoundEnabled",
+      (!soundEnabled).toString(),
+    );
   };
 
   const handleNotificationItemClick = (notification: Notification) => {
@@ -74,23 +77,23 @@ export function NotificationDropdown({
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
-        <button 
+        <button
           className={`relative p-2 rounded-lg transition-all duration-200 ${
-            open 
-              ? 'bg-[#d2e1f8]'
-              : unreadCount > 0 
-                ? 'bg-[#e8f0ff] hover:bg-[#d2e1f8]' 
-                : 'hover:bg-[#f8f8f8]'
+            open
+              ? "bg-[#d2e1f8]"
+              : unreadCount > 0
+                ? "bg-[#e8f0ff] hover:bg-[#d2e1f8]"
+                : "hover:bg-[#f8f8f8]"
           }`}
-          aria-label={`Notificaciones${unreadCount > 0 ? ` (${unreadCount} sin leer)` : ''}`}
+          aria-label={`Notificaciones${unreadCount > 0 ? ` (${unreadCount} sin leer)` : ""}`}
         >
           <motion.div
             animate={open ? { rotate: [0, -10, 10, -10, 0] } : {}}
             transition={{ duration: 0.5 }}
           >
-            <Bell 
-              className="h-6 w-6 transition-all duration-200" 
-              style={{ stroke: "#1A66FC", strokeWidth: 2 }} 
+            <Bell
+              className="h-6 w-6 transition-all duration-200"
+              style={{ stroke: "#1A66FC", strokeWidth: 2 }}
             />
           </motion.div>
           {unreadCount > 0 && (
@@ -145,45 +148,45 @@ export function NotificationDropdown({
                     transition={{ duration: 0.2, delay: index * 0.05 }}
                   >
                     <DropdownMenuItem
-                  key={notification.id}
-                  className={`px-4 py-3 cursor-pointer hover:bg-[#f8f9fb] focus:bg-[#f8f9fb] active:bg-[#e8f0ff] transition-all duration-200 ${
-                    !notification.isRead ? "bg-[#f1f6ff]" : ""
-                  }`}
-                  onClick={() => handleNotificationItemClick(notification)}
-                >
-                  <div className="flex gap-3 w-full pointer-events-none">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="h-9 w-9 rounded-full bg-[#e8f0ff] flex items-center justify-center">
-                        <MessageSquare
-                          className="h-4 w-4"
-                          style={{ stroke: "#1A66FC", strokeWidth: 2 }}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <p className="font-medium text-[#40435b] text-sm">
-                          {notification.patientName}
-                        </p>
-                        <span className="text-xs text-muted-foreground whitespace-nowrap">
-                          {notification.timestamp}
-                        </span>
-                      </div>
-                      <p className="text-sm text-muted-foreground line-clamp-2">
-                        {notification.message}
-                      </p>
-                      {!notification.isRead && (
-                        <div className="mt-2">
-                          <Badge
-                            variant="default"
-                            className="bg-[#1A66FC] text-white text-xs px-2 py-0.5"
-                          >
-                            Nuevo
-                          </Badge>
+                      key={notification.id}
+                      className={`px-4 py-3 cursor-pointer hover:bg-[#f8f9fb] focus:bg-[#f8f9fb] active:bg-[#e8f0ff] transition-all duration-200 ${
+                        !notification.isRead ? "bg-[#f1f6ff]" : ""
+                      }`}
+                      onClick={() => handleNotificationItemClick(notification)}
+                    >
+                      <div className="flex gap-3 w-full pointer-events-none">
+                        <div className="flex-shrink-0 mt-1">
+                          <div className="h-9 w-9 rounded-full bg-[#e8f0ff] flex items-center justify-center">
+                            <MessageSquare
+                              className="h-4 w-4"
+                              style={{ stroke: "#1A66FC", strokeWidth: 2 }}
+                            />
+                          </div>
                         </div>
-                      )}
-                    </div>
-                  </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between gap-2 mb-1">
+                            <p className="font-medium text-[#40435b] text-sm">
+                              {notification.patientName}
+                            </p>
+                            <span className="text-xs text-muted-foreground whitespace-nowrap">
+                              {notification.timestamp}
+                            </span>
+                          </div>
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {notification.message}
+                          </p>
+                          {!notification.isRead && (
+                            <div className="mt-2">
+                              <Badge
+                                variant="default"
+                                className="bg-[#1A66FC] text-white text-xs px-2 py-0.5"
+                              >
+                                Nuevo
+                              </Badge>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </DropdownMenuItem>
                   </motion.div>
                 ))}

@@ -479,8 +479,14 @@ const mockPatientTickets: Record<string, PatientTicket[]> = {
         {
           id: "m1",
           text: "¿Puede ayudarme a programar una cita?",
-          timestamp: new Date(Date.now() - 5 * 60 * 1000).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true }),
-          date: (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; })(),
+          timestamp: new Date(Date.now() - 5 * 60 * 1000).toLocaleTimeString(
+            "en-US",
+            { hour: "numeric", minute: "2-digit", hour12: true },
+          ),
+          date: (() => {
+            const d = new Date();
+            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+          })(),
           isOperator: false,
         },
       ],
@@ -790,9 +796,9 @@ const mockNotifications: Notification[] = [
 
 export default function App() {
   // Auth flow state
-  const [authScreen, setAuthScreen] = useState<"login" | "otp" | "loading" | "app">(
-    "login",
-  );
+  const [authScreen, setAuthScreen] = useState<
+    "login" | "otp" | "loading" | "app"
+  >("login");
   const [loginEmail, setLoginEmail] = useState("");
 
   const [patientList, setPatientList] = useState(mockPatientList);
